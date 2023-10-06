@@ -1,8 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
-import { Outlet } from "react-router-dom";
-import Login from "./login";
 import Carousel from "../components/Carousel";
+import Card from "../components/Card";
 export default function Home() {
   return (
     <>
@@ -11,6 +10,16 @@ export default function Home() {
           <Navbar />
         </Box>
         <Carousel />
+        <Box
+          display={"grid"}
+          gridTemplateColumns={"repeat(auto-fit,minmax(270px,auto))"}
+          gap={"10px"}
+          margin={"50px 5%"}
+        >
+          <Card />
+          <Card />
+          <Card />
+        </Box>
       </Box>
     </>
   );
