@@ -18,17 +18,19 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { Link } from 'react-router-dom';
 
 interface Props {
   children: React.ReactNode;
 }
 
-const Links = ["Dashboard", "Projects", "Team"];
+const Links = ["Dashboard", "News", "Team"];
 
 const NavLink = (props: Props) => {
   const { children } = props;
 
   return (
+    <Link to ="/news">
     <Box
       as="a"
       px={2}
@@ -42,6 +44,7 @@ const NavLink = (props: Props) => {
     >
       {children}
     </Box>
+    </Link>
   );
 };
 
@@ -62,9 +65,9 @@ export default function Simple() {
           <HStack spacing={8} alignItems={"center"}>
             <Box>
               <Image
-                src="https://ik.imagekit.io/lcfefbv0i/logo.png?updatedAt=1693148421389"
-                width={"20px"}
-                height={"20px"}
+                src="https://ik.imagekit.io/lcfefbv0i/GatherLi_Logo_v3-removebg-preview.svg?updatedAt=1696577019435"
+                width={"45px"}
+                height={"45px"}
               ></Image>
             </Box>
             <HStack
