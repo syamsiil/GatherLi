@@ -1,79 +1,98 @@
-"use client";
-
 import {
-  Box,
-  Center,
-  Heading,
-  Text,
+  Card,
   Stack,
-  Avatar,
-  useColorModeValue,
+  Heading,
+  CardFooter,
+  Button,
   Image,
+  Text,
+  Box,
+  HStack,
+  Center,
 } from "@chakra-ui/react";
+import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-export default function CardTemplate() {
+interface NewsArticle {
+  id: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  urlToImage: string;
+  // Add other properties as needed
+}
+
+
+export default function CardNews() {
+  const [newsData, setNewsData] = useState<NewsArticle[]>([]);
+
+  useEffect(() => {
+    const apiKey = "1ed77cfa2b0440bc9da796c6ee02b79d"; 
+    const apiUrl = "https://newsapi.org/v2/top-headlines/sources";
+
+    const apiUrlWithKey = `${apiUrl}?apiKey=${apiKey}`;
+
+    axios
+      .get(apiUrlWithKey)
+      .then((response) => {
+        setNewsData(response.data.articles);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
-    <Center py={6}>
-      <Box
-        maxW={"445px"}
-        w={"full"}
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        bg={useColorModeValue("white", "gray.900")}
-        boxShadow={"2xl"}
-        rounded={"md"}
-        p={6}
-        overflow={"hidden"}
-      >
-        <Box
-          h={"210px"}
-          bg={"gray.100"}
-          mt={-6}
-          mx={-6}
-          mb={6}
-          pos={"relative"}
-        >
-          <Image
-            src={
-              "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-            }
-            alt="Example"
-          />
-        </Box>
-        <Stack>
-          <Text
-            color={"green.500"}
-            textTransform={"uppercase"}
-            fontWeight={800}
-            fontSize={"sm"}
-            letterSpacing={1.1}
+    <>
+      <Center m={10}>
+        {newsData.map((item) => (
+          <Card 
+          key={item.id}
+            maxW="sm"
+            m={5}
+            transition="transform 0.5s"
+            _hover={{
+              transform: "scale(1.05)",
+            }}
           >
-            Blog
-          </Text>
-          <Heading
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            color={useColorModeValue("gray.700", "white")}
-            fontSize={"2xl"}
-            fontFamily={"body"}
-          >
-            Boost your conversion rate
-          </Heading>
-          <Text color={"gray.500"}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </Text>
-        </Stack>
-        <Stack mt={6} direction={"row"} spacing={4} align={"center"}>
-          <Avatar
-            src={"https://avatars0.githubusercontent.com/u/1164541?v=4"}
-          />
-          <Stack direction={"column"} spacing={0} fontSize={"sm"}>
-            <Text fontWeight={600}>Achim Rolle</Text>
-            <Text color={"gray.500"}>Feb 08, 2021 · 6min read</Text>
-          </Stack>
-        </Stack>
-      </Box>
-    </Center>
+            <Box>
+              <Image
+                src={item.urlToImage}
+                alt="Green double couch with wooden legs"
+                borderRadius={"6px 6px 0 0"}
+                padding={0}
+              />
+              <Stack
+                mt="6"
+                spacing="3"
+                padding={"0 20px"}  
+                textAlign={"justify"}
+              >
+                <Heading size="md">{item.title}</Heading>
+                <HStack>
+                  <Text fontSize={"xs"} color={"grey"}>
+                  {new Date(item.publishedAt).toLocaleDateString()}//
+                  </Text>
+                  <Text fontSize={"xs"} color={"grey"}>
+                  {new Date(item.publishedAt).toLocaleTimeString()} 
+                  </Text>
+                </HStack>
+                <Text>
+                  {item.description}
+                </Text>
+              </Stack>
+            </Box>
+            <CardFooter>
+              <Link to={'/news/' + item.id}>
+              <Button variant="solid" colorScheme="teal" width={"100%"}>
+                Read More
+              </Button>
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
+      </Center>
+    </>
   );
 }
