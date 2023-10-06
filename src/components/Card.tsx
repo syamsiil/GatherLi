@@ -1,18 +1,15 @@
 import {
   Card,
-  CardBody,
   Stack,
   Heading,
-  Divider,
   CardFooter,
-  ButtonGroup,
   Button,
   Image,
   Text,
   Box,
 } from "@chakra-ui/react";
 
-export default function CardTemplate() {
+export default function CardHome() {
   return (
     <>
       <Card maxW="sm">
@@ -34,7 +31,16 @@ export default function CardTemplate() {
         </Box>
 
         <CardFooter>
-          <Button variant="solid" colorScheme="blue" width={"100%"}>
+          <Button
+            variant="solid"
+            bgColor={"teal"}
+            width={"100%"}
+            colorScheme="none"
+            color={"white"}
+            _hover={{
+              bgColor: "teal.700",
+            }}
+          >
             Read More
           </Button>
         </CardFooter>

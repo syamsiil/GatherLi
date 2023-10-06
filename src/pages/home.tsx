@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
+import FooterTemplate from "../components/Footer";
 export default function Home() {
   return (
     <>
@@ -20,6 +21,8 @@ export default function Home() {
           <Card />
           <Card />
         </Box>
+
+        <FooterTemplate />
       </Box>
     </>
   );
