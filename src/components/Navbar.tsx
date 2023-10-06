@@ -5,7 +5,6 @@ import {
   Flex,
   Avatar,
   HStack,
-  Text,
   IconButton,
   Button,
   Menu,
@@ -16,6 +15,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
@@ -60,7 +60,13 @@ export default function Simple() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+            <Box>
+              <Image
+                src="https://ik.imagekit.io/lcfefbv0i/logo.png?updatedAt=1693148421389"
+                width={"20px"}
+                height={"20px"}
+              ></Image>
+            </Box>
             <HStack
               as={"nav"}
               spacing={4}
