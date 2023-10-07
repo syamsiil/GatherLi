@@ -1,18 +1,17 @@
+"use client";
+import { Box } from "@chakra-ui/react";
+import Navbar from "../components/Navbar"
+import CardNews from "../components/CardNews"
 
-  import Navbar from "../components/Navbar";
-  import CardNews from "../components/CardNews";
-import { Box } from "../../node_modules/framer-motion/dist/index";
-  
-  export default function News() {
-    return (
-      <>
-        <Box>
-          <Navbar />
-        </Box>
-        <Box>
-          <CardNews />
-        </Box>
-      </>
-    );
-  }
-  
+export default function News() {
+  return (
+    <>
+      <Box>
+        <Navbar />
+      </Box>
+      <Box>
+        <CardNews />
+      </Box>
+    </>
+  );
+}

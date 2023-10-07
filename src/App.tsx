@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import Home from "./pages/home";
-import News from "pages/news";
+import News from "./pages/news";
+
 
 function App() {
   return (

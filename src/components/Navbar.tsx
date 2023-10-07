@@ -18,7 +18,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Link } from "../../node_modules/react-router-dom/dist/index";
+import { Link } from "react-router-dom";
+// import { Link } from "../../node_modules/react-router-dom/dist/index";
+
 
 interface Props {
   children: React.ReactNode;

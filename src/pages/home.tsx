@@ -1,7 +1,10 @@
+
+"use client";
 import { Box } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Carousel from "../components/Carousel";
 import Card from "../components/Card";
+
 export default function Home() {
   return (
     <>
