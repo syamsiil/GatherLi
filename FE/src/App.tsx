@@ -9,7 +9,9 @@ import { useEffect, useState } from "react";
 import { API, setAuthToken } from "./libs/api";
 import { AUTH_CHECK, AUTH_ERROR } from "./stores/rootReducer";
 import CardNews from "../src/components/CardNews";
+// import ArticlePage from "../src/pages/detailNews";
 import CardProfile from "../src/components/CardProfile";
+import DetailCard from "../src/pages/detailCard";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -52,7 +54,7 @@ function App() {
 
   function IsNotLogin() {
     if (auth.username) {
-      return <Navigate to={"/home"} />;
+      return <Navigate to={"/"} />;
     } else {
       return <Outlet />;
     }
@@ -61,10 +63,11 @@ function App() {
     <>
       {isLoading ? null : (
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/" element={<IsLogin />}>
-            <Route path="/home" element={<Home />} />
             <Route path="/threads" element={<Community />} />
             <Route path="/news" element={<CardNews />} />
+            <Route path="/detailcard/:id" element={<DetailCard />} />
             {/* <Route path="/news/:id" element={<ArticlePage />} /> */}
             <Route path="/profile" element={<CardProfile />} />
           </Route>
@@ -73,7 +76,6 @@ function App() {
             <Route path="login" element={<Login />}></Route>
           </Route>
         </Routes>
-
       )}
     </>
   );

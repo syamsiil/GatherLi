@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "Title": "Sampah Depok Kian Menggunung",
+    "Image": "https://ik.imagekit.io/lcfefbv0i/aditya-nara-J7QbrjBpb8I-unsplash.jpg?updatedAt=1696592390369",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas semper congue sodales. Nulla non molestie sapien, a imperdiet magna. Nulla scelerisque dui vitae velit suscipit tristique. Vivamus a cursus quam. Maecenas vulputate condimentum magna ac sagittis. Donec lacinia urna nec nisi auctor, fermentum mattis eros rutrum. Cras et nunc at neque consectetur dapibus. Nunc et hendrerit libero, id luctus massa. Cras vulputate pretium libero vel iaculis. Nunc condimentum ex purus, eget laoreet nunc interdum et. Nulla luctus eleifend pharetra. Donec ultricies convallis gravida. Curabitur augue odio, sodales non ligula nec, vulputate bibendum eros."
+  },
+  {
+    "id": "2",
+    "Title": "Title 2",
+    "Image": "https://ik.imagekit.io/lcfefbv0i/anne-nygard-v5mEr9CfG18-unsplash.jpg?updatedAt=1696609935618",
+    "Description": "Nam quis ullamcorper tellus. Cras urna velit, feugiat ac gravida non, commodo ut enim. Aliquam faucibus lectus nibh, vel tempor dolor eleifend quis. Sed eget ante eget ex aliquam dapibus eget eget felis. Curabitur non ligula molestie, fermentum ligula ut, molestie sem. Nam rhoncus orci at augue laoreet, et lacinia ligula dapibus. Nullam euismod nec magna at rutrum. Vestibulum pharetra pharetra tempus. Sed et sodales turpis. Integer et urna orci. In tincidunt turpis non metus luctus facilisis. Integer sed sodales sapien."
+  }
+]

@@ -35,95 +35,156 @@ export default function Login() {
   return (
     <Flex
       minH={"100vh"}
-      align={"center"}
-      justify={"center"}
+      alignItems={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
-          <Heading fontSize={"4xl"}>Sign in to your account</Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
-          </Text>
-        </Stack>
-        <Box
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={8}
-        >
-          <form onSubmit={handleSubmit}>
-            {errorAlert && (
-              <Alert status="error" mb={4}>
-                <AlertIcon />
-                <AlertTitle mr={2}>Terjadi Kesalahan</AlertTitle>
-                <AlertDescription>{errorAlert}</AlertDescription>
-              </Alert>
-            )}
+      <Box
+        width={"60%"}
+        height={"100vh"}
+        bgImage={
+          "https://ik.imagekit.io/lcfefbv0i/bgwhite.svg?updatedAt=1696671495243"
+        }
+        alignItems={"center"}
+      >
+        <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+          <Stack align={"center"}>
+            <Heading fontSize={"4xl"}>
+              <Text color={"teal"}>
+                Sign in to Gather
+                <Text as="span" color={"#83b735"}>
+                  Li
+                </Text>
+                .
+              </Text>
+            </Heading>
+            {/* <Text fontSize={"lg"} color={"gray.600"}>
+              to enjoy all of our cool features ✌️
+            </Text> */}
+          </Stack>
+          <Box
+            // rounded={"lg"}
+            borderRadius={"30px"}
+            bgImage={
+              "https://ik.imagekit.io/lcfefbv0i/bg.svg?updatedAt=1696669804112"
+            }
+            boxShadow={"lg"}
+            p={8}
+          >
+            <form onSubmit={handleSubmit}>
+              {errorAlert && (
+                <Alert status="error" mb={4}>
+                  <AlertIcon />
+                  <AlertTitle mr={2}>Terjadi Kesalahan</AlertTitle>
+                  <AlertDescription>{errorAlert}</AlertDescription>
+                </Alert>
+              )}
 
-            {successAlert && (
-              <Alert status="success" mb={4}>
-                <AlertIcon />
-                <AlertTitle mr={2}>Sukses</AlertTitle>
-                <AlertDescription>{successAlert}</AlertDescription>
-              </Alert>
-            )}
+              {successAlert && (
+                <Alert status="success" mb={4}>
+                  <AlertIcon />
+                  <AlertTitle mr={2}>Sukses</AlertTitle>
+                  <AlertDescription>{successAlert}</AlertDescription>
+                </Alert>
+              )}
 
-            <Stack spacing={4}>
-              <FormControl id="email">
-                <FormLabel>Email address</FormLabel>
-                <Input
-                  type="email"
-                  name="email"
-                  onChange={changeHandler}
-                  value={form.email}
-                />
-              </FormControl>
-              <FormControl id="password">
-                <FormLabel>Password</FormLabel>
-                <Input
-                  type="password"
-                  name="password"
-                  onChange={changeHandler}
-                  value={form.password}
-                />
-              </FormControl>
-              <Stack spacing={10}>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  align={"start"}
-                  justify={"space-between"}
-                >
-                  <Checkbox>Remember me</Checkbox>
-                  <Text color={"blue.400"}>Forgot password?</Text>
-                </Stack>
-                <Box display={"flex"}>
-                  Dont have an account yet ?{" "}
-                  <Text
-                    color={"twitter.600"}
-                    cursor={"pointer"}
-                    ml={2}
-                    onClick={() => navigate("/registrasi")}
+              <Stack spacing={4}>
+                <FormControl id="email">
+                  <FormLabel>Email address</FormLabel>
+                  <Input
+                    type="email"
+                    name="email"
+                    onChange={changeHandler}
+                    value={form.email}
+                    bg={"teal"}
+                  />
+                </FormControl>
+                <FormControl id="password">
+                  <FormLabel>Password</FormLabel>
+                  <Input
+                    type="password"
+                    name="password"
+                    onChange={changeHandler}
+                    value={form.password}
+                    bg={"teal"}
+                  />
+                </FormControl>
+                <Stack spacing={10}>
+                  <Stack
+                    direction={{ base: "column", sm: "row" }}
+                    align={"start"}
+                    justify={"space-between"}
                   >
-                    Create One
-                  </Text>
-                </Box>
-                <Button
-                  type="submit"
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                  onClick={handleSubmit}
-                >
-                  Sign in
-                </Button>
+                    <Flex gap={"5px"}>
+                      <Checkbox colorScheme="teal"></Checkbox>
+                      <Text>Remember me</Text>
+                    </Flex>
+
+                    <Text color={"white"}>Forgot password?</Text>
+                  </Stack>
+                </Stack>
               </Stack>
-            </Stack>
-          </form>
+            </form>
+            <Button
+              fontWeight={"bold"}
+              mt={"15px"}
+              type="submit"
+              width={"100%"}
+              padding={"5px 15px"}
+              border={"1px solid teal "}
+              borderRadius={"30px"}
+              bg={"white"}
+              color={"teal"}
+              _hover={{
+                bg: "teal",
+                color: "white",
+                border: "1px solid white",
+              }}
+              onClick={handleSubmit}
+            >
+              Sign in
+            </Button>
+          </Box>
+        </Stack>
+      </Box>
+      <Box
+        width={"40%"}
+        bgImage={
+          "https://ik.imagekit.io/lcfefbv0i/bg.svg?updatedAt=1696669804112"
+        }
+        height={"100vh"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        display={"flex"}
+        flexDirection={"column"}
+      >
+        <Heading color={"white"} fontSize={"60px"}>
+          Hello, Friend!
+        </Heading>
+        <Text width={"250px"} mt={"40px"} textAlign={"center"}>
+          Enter your personal details and start your journey with us
+        </Text>
+        <Box display={"flex"} width={"250px"} textAlign={"center"} mt={"40px"}>
+          <Text
+            fontWeight={"bold"}
+            width={"100%"}
+            padding={"5px 15px"}
+            border={"1px solid teal "}
+            borderRadius={"30px"}
+            bg={"white"}
+            color={"teal"}
+            _hover={{
+              bg: "teal",
+              color: "white",
+              border: "1px solid white",
+            }}
+            cursor={"pointer"}
+            ml={2}
+            onClick={() => navigate("/registrasi")}
+          >
+            Sign Up
+          </Text>
         </Box>
-      </Stack>
+      </Box>
     </Flex>
   );
 }
