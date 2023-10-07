@@ -4,7 +4,6 @@ import {
   Text,
   Image,
   Flex,
-  Box,
   Button,
 } from "@chakra-ui/react";
 import { Link, useParams } from "react-router-dom";

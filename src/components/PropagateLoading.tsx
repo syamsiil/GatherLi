@@ -1,6 +1,4 @@
-import { Center } from "@chakra-ui/react";
 import { CSSProperties } from "react";
-
 import { PropagateLoader } from "react-spinners";
 
 const override: CSSProperties = {
