@@ -15,3 +15,17 @@ export const AppDataSource = new DataSource({
   migrations: ["src/migrations/*.ts"],
   subscribers: [],
 });
+
+// export const AppDataSource = new DataSource({
+//   type: "postgres",
+//   host: "containers-us-west-50.railway.app",
+//   port: 5490,
+//   username: "postgres",
+//   password: "hoq7fQY6GG8ccWsBNsI1",
+//   database: "railway",
+//   synchronize: true,
+//   logging: false,
+//   entities: ["src/entities/*.ts"],
+//   migrations: ["src/migrations/*.ts"],
+//   subscribers: [],
+// });
