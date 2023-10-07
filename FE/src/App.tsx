@@ -75,7 +75,7 @@ function App() {
             {/* <Route path="/detail/:id" element={< />} /> */}
           </Route>
           <Route path="/" element={<IsNotLogin />}>
-            <Route path="registrasi" element={<Register />}></Route>
+            <Route path="register" element={<Register />}></Route>
             <Route path="login" element={<Login />}></Route>
           </Route>
         </Routes>
