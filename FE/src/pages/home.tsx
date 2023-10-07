@@ -5,6 +5,7 @@ import FooterTemplate from "../components/Footer";
 // import { useState } from "react";
 import CardHome from "../components/Card";
 import About from "../components/About";
+import AddCardPopup from "../components/addCardPopup";
 export default function Home() {
   // const initialCards = [
   //   { title: 'Card 1' },
@@ -33,11 +34,15 @@ export default function Home() {
 
         <About />
 
+        <Box display={"flex"} justifyContent={"center"}>
+          <AddCardPopup />
+        </Box>
+
         <Box
           display={"grid"}
           gridTemplateColumns={"repeat(auto-fit,minmax(270px,auto))"}
           gap={"15px"}
-          margin={"50px 5%"}
+          margin={"20px 5%"}
         >
           <CardHome />
         </Box>

@@ -58,7 +58,12 @@ export default function SignUp() {
         <Heading color={"white"} fontSize={"60px"}>
           Welcome Back!
         </Heading>
-        <Text width={"250px"} mt={"40px"} textAlign={"center"}>
+        <Text
+          width={"250px"}
+          mt={"40px"}
+          textAlign={"center"}
+          fontWeight={"500"}
+        >
           To keep connected with us please login with your personal info
         </Text>
         <Box display={"flex"} width={"250px"} textAlign={"center"} mt={"40px"}>

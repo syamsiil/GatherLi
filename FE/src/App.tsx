@@ -11,6 +11,7 @@ import { AUTH_CHECK, AUTH_ERROR } from "./stores/rootReducer";
 import CardNews from "../src/components/CardNews";
 // import ArticlePage from "../src/pages/detailNews";
 import CardProfile from "../src/components/CardProfile";
+import CommunityDetail from "../src/pages/DetailPorjectRoute";
 import DetailCard from "../src/pages/detailCard";
 
 function App() {
@@ -70,9 +71,11 @@ function App() {
             <Route path="/detailcard/:id" element={<DetailCard />} />
             {/* <Route path="/news/:id" element={<ArticlePage />} /> */}
             <Route path="/profile" element={<CardProfile />} />
+            <Route path="/detail/:id" element={<CommunityDetail />} />
+            {/* <Route path="/detail/:id" element={< />} /> */}
           </Route>
           <Route path="/" element={<IsNotLogin />}>
-            <Route path="registrasi" element={<Register />}></Route>
+            <Route path="register" element={<Register />}></Route>
             <Route path="login" element={<Login />}></Route>
           </Route>
         </Routes>
