@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { API, setAuthToken } from "./libs/api";
 import { AUTH_CHECK, AUTH_ERROR } from "./stores/rootReducer";
 import CardNews from "../src/components/CardNews";
-import ArticlePage from "../src/pages/detailNews";
 import CardProfile from "../src/components/CardProfile";
 
 function App() {
