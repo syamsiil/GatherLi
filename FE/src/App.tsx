@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { API, setAuthToken } from "./libs/api";
 import { AUTH_CHECK, AUTH_ERROR } from "./stores/rootReducer";
+import CardNews from "../src/components/CardNews";
+import ArticlePage from "../src/pages/detailNews";
+import CardProfile from "../src/components/CardProfile";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -62,6 +65,9 @@ function App() {
           <Route path="/" element={<IsLogin />}>
             <Route path="/home" element={<Home />} />
             <Route path="/threads" element={<Community />} />
+            <Route path="/news" element={<CardNews />} />
+            {/* <Route path="/news/:id" element={<ArticlePage />} /> */}
+            <Route path="/profile" element={<CardProfile />} />
           </Route>
           <Route path="/" element={<IsNotLogin />}>
             <Route path="registrasi" element={<Register />}></Route>

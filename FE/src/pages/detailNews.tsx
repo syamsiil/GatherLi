@@ -6,18 +6,18 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import dataNews from "../utils/dataNews.json";
+import dataNews from "@/utils/dataNews.json";
 
 
 
 
 export default function ArticlePage() {
-    const { id } = useParams();
-    const newsArticle = dataNews.find((item) => item.id === id);
-    if (!newsArticle) {
-        // Handle the case where the news article with the specified id is not found
-        return <Text>News article not found.</Text>;
-      }
+  const { id } = useParams();
+  const newsArticle = dataNews.find((item) => item.id === id);
+  if (!newsArticle) {
+    // Handle the case where the news article with the specified id is not found
+    return <Text>News article not found.</Text>;
+  }
 
   return (
     <Container maxW="xl" py={8}>
