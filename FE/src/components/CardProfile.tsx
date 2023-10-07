@@ -12,6 +12,7 @@ import {
   CardBody,
   Textarea,
   Container,
+  Text,
 } from "@chakra-ui/react";
 import Navbar from "./Navbar";
 import { useState } from "react";
@@ -26,55 +27,36 @@ export default function CardProfile() {
     reader.onload = (e: any) => {
       //callback yang akan dipanggil ketika pembaca telah selesai membaca file gambar yang dipilih oleh pengguna
       setSelectedImage(e.target.result);
+
+      console.log("ini isi setSelectedImage", e.target.result);
     };
 
     reader.readAsDataURL(file); // pembacaan file yang dipilih oleh pengguna sebagai data URL
+
+    console.log("ini isi selectedImage", selectedImage);
   };
 
   return (
     <>
       <Navbar />
-      <Container mb={"1em"}>
-        <Box mt={"2em"}>
-          <Heading textAlign={"center"} mb={"0.5em"}>
-            Ubah Profil
-          </Heading>
+      <Container mb={"1em"} mt={"5em"} maxWidth={"100%"}>
+        <Box>
+          <Box mb={"0.5em"}>
+            <Heading textAlign={"center"}>
+              Account Settings
+            </Heading>
+            <Text textAlign={"center"}>Edit your name , avatar etc</Text>
+          </Box>
           <Center>
-            <Card>
+            <Card width={"1000px"} alignItems={"center"}>
               <CardBody>
-                <Box>
-                  <Heading as="h6" size="md" mb={"1em"}>
-                    Detail Profil
-                  </Heading>
-                  <Flex alignItems="center">
-                    <Avatar src={selectedImage} me="0.5em" />
-                    <Button
-                      as="label"
-                      htmlFor="imageUpload"
-                      cursor={"pointer"}
-                      backgroundColor={"#474fa0"}
-                      _hover={{ backgroundColor: "#1c2844", textColor: "#fff" }}
-                      colorScheme="none"
-                    >
-                      Unggah Foto
-                    </Button>
-                    <input
-                      id="imageUpload"
-                      type="file"
-                      onChange={handleImageUpload}
-                      style={{ display: "none" }}
-                    />
-                  </Flex>
+                <Flex>
                   <form action="">
                     <FormControl isRequired>
                       <Flex mt={"1.5em"}>
                         <Box me={"1em"}>
-                          <FormLabel>First name</FormLabel>
-                          <Input placeholder="First name" />
-                        </Box>
-                        <Box>
-                          <FormLabel>Last name</FormLabel>
-                          <Input placeholder="Last name" />
+                          <FormLabel>Nama Lengkap</FormLabel>
+                          <Input placeholder="Your Name" width={"500px"} />
                         </Box>
                       </Flex>
                       <Box mt={"1.5em"}>
@@ -103,7 +85,37 @@ export default function CardProfile() {
                       </Flex>
                     </FormControl>
                   </form>
-                </Box>
+
+                  <Flex
+                    flexDirection={"column"}
+                    alignItems={"center"}
+                    ml={"4em"}
+                    mt={"3em"}
+                  >
+                    <Avatar
+                      src={selectedImage}
+                      me="0.5em"
+                      mb={"0.5em"}
+                      size={"xl"}
+                    />
+                    <Button
+                      as="label"
+                      htmlFor="imageUpload"
+                      cursor={"pointer"}
+                      backgroundColor={"#474fa0"}
+                      _hover={{ backgroundColor: "#1c2844", textColor: "#fff" }}
+                      colorScheme="none"
+                    >
+                      Unggah Foto
+                    </Button>
+                    <input
+                      id="imageUpload"
+                      type="file"
+                      onChange={handleImageUpload}
+                      style={{ display: "none" }}
+                    />
+                  </Flex>
+                </Flex>
               </CardBody>
             </Card>
           </Center>

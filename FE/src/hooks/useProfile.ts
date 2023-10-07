@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 
-async function handlePost(event: FormEvent<HTMLFormElement>) {
+export function useProfile(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData();
