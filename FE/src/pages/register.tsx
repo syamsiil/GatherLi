@@ -7,13 +7,11 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  Link,
   InputRightElement,
   Stack,
   Button,
   Heading,
   Text,
-  useColorModeValue,
   Alert,
   AlertTitle,
   AlertIcon,
@@ -21,7 +19,8 @@ import {
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 // import { useRegister } from "../features/auth/useRegister";
-import { useRegister } from "../features/auth/useRegister"
+import { useRegister } from "../features/auth/useRegister";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const {
@@ -34,38 +33,99 @@ export default function SignUp() {
     showPassword,
   } = useRegister();
 
+  const navigate = useNavigate();
+
   return (
     <Flex
-      minH={"100vh"}
+      minH={"200%"}
       align={"center"}
       justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
+      bgImage={
+        "https://ik.imagekit.io/lcfefbv0i/bg.svg?updatedAt=1696669804112"
+      }
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6} width={"100em"}>
-        <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
-          </Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
+      <Box
+        width={"40%"}
+        bgImage={
+          "https://ik.imagekit.io/lcfefbv0i/bg.svg?updatedAt=1696669804112"
+        }
+        height={"100vh"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        display={"flex"}
+        flexDirection={"column"}
+      >
+        <Heading color={"white"} fontSize={"60px"}>
+          Welcome Back!
+        </Heading>
+        <Text width={"250px"} mt={"40px"} textAlign={"center"}>
+          To keep connected with us please login with your personal info
+        </Text>
+        <Box display={"flex"} width={"250px"} textAlign={"center"} mt={"40px"}>
+          <Text
+            fontWeight={"bold"}
+            width={"100%"}
+            padding={"5px 15px"}
+            border={"1px solid teal "}
+            borderRadius={"30px"}
+            bg={"white"}
+            color={"teal"}
+            _hover={{
+              bg: "teal",
+              color: "white",
+              border: "1px solid white",
+            }}
+            cursor={"pointer"}
+            ml={2}
+            onClick={() => navigate("/login")}
+          >
+            Login
           </Text>
-        </Stack>
-        <Box
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={8}
-        >
-          <form onSubmit={handleSubmit}>
-            {errorAlert.map((alert, index) => (
-              <Alert key={index} status="error" mb={4}>
-                <AlertIcon />
-                <AlertTitle mr={2}>There is an error</AlertTitle>
+        </Box>
+      </Box>
 
-                <AlertDescription>{alert as string}</AlertDescription>
-              </Alert>
-            ))}
-            {/* {errorAlert && (
+      {/* RightSide */}
+      <Box
+        width={"60%"}
+        bgImage={
+          "https://ik.imagekit.io/lcfefbv0i/bgwhite.svg?updatedAt=1696671495243"
+        }
+      >
+        <Stack
+          spacing={8}
+          mx={"auto"}
+          maxW={"lg"}
+          py={6}
+          px={6}
+          width={"100em"}
+        >
+          <Stack align={"center"}>
+            <Heading fontSize={"4xl"} textAlign={"center"} color={"teal"}>
+              Create Account
+            </Heading>
+            {/* <Text fontSize={"lg"} color={"gray.600"}>
+              to enjoy all of our cool features ✌️
+            </Text> */}
+          </Stack>
+          <Box
+            // rounded={"lg"}
+            borderRadius={"30px"}
+            bgImage={
+              "https://ik.imagekit.io/lcfefbv0i/bg.svg?updatedAt=1696669804112"
+            }
+            boxShadow={"lg"}
+            p={8}
+          >
+            <form onSubmit={handleSubmit}>
+              {errorAlert.map((alert, index) => (
+                <Alert key={index} status="error" mb={4}>
+                  <AlertIcon />
+                  <AlertTitle mr={2}>There is an error</AlertTitle>
+
+                  <AlertDescription>{alert as string}</AlertDescription>
+                </Alert>
+              ))}
+              {/* {errorAlert && (
               <Alert status="error" mb={4}>
                 <AlertIcon />
                 <AlertTitle mr={2}>Terjadi Kesalahan</AlertTitle>
@@ -73,93 +133,97 @@ export default function SignUp() {
               </Alert>
             )} */}
 
-            {successAlert && (
-              <Alert status="success" mb={4}>
-                <AlertIcon />
-                <AlertTitle mr={2}>Sukses</AlertTitle>
-                <AlertDescription>{successAlert}</AlertDescription>
-              </Alert>
-            )}
+              {successAlert && (
+                <Alert status="success" mb={4}>
+                  <AlertIcon />
+                  <AlertTitle mr={2}>Sukses</AlertTitle>
+                  <AlertDescription>{successAlert}</AlertDescription>
+                </Alert>
+              )}
 
-            <Stack spacing={4}>
-              <FormControl id="username" isRequired>
-                <FormLabel>Username</FormLabel>
-                <Input
-                  minLength={3}
-                  name="username"
-                  type="text"
-                  onChange={changeHandler}
-                  value={form.username}
-                />
-              </FormControl>
-
-              <FormControl id="firstName" isRequired>
-                <FormLabel>Full Name</FormLabel>
-                <Input
-                  name="full_name"
-                  type="text"
-                  onChange={changeHandler}
-                  value={form.full_name}
-                />
-              </FormControl>
-
-              <FormControl id="email" isRequired>
-                <FormLabel>Email address</FormLabel>
-                <Input
-                  name="email"
-                  type="email"
-                  onChange={changeHandler}
-                  value={form.email}
-                />
-              </FormControl>
-              <FormControl id="password" isRequired>
-                <FormLabel>Password</FormLabel>
-                <InputGroup>
+              <Stack spacing={4}>
+                <FormControl id="username" isRequired>
+                  <FormLabel>Username</FormLabel>
                   <Input
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    onChange={changeHandler}
-                    value={form.password}
                     minLength={3}
+                    name="username"
+                    type="text"
+                    onChange={changeHandler}
+                    value={form.username}
+                    bg={"teal"}
                   />
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)
-                      }
-                    >
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
-              <Stack spacing={10} pt={2}>
-                <Button
-                  type="submit"
-                  loadingText="Submitting"
-                  size="lg"
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                >
-                  Sign up
-                </Button>
+                </FormControl>
+
+                <FormControl id="firstName" isRequired>
+                  <FormLabel>Full Name</FormLabel>
+                  <Input
+                    name="full_name"
+                    type="text"
+                    onChange={changeHandler}
+                    value={form.full_name}
+                    bg={"teal"}
+                  />
+                </FormControl>
+
+                <FormControl id="email" isRequired>
+                  <FormLabel>Email address</FormLabel>
+                  <Input
+                    name="email"
+                    type="email"
+                    onChange={changeHandler}
+                    value={form.email}
+                    bg={"teal"}
+                  />
+                </FormControl>
+                <FormControl id="password" isRequired>
+                  <FormLabel>Password</FormLabel>
+                  <InputGroup>
+                    <Input
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      onChange={changeHandler}
+                      value={form.password}
+                      minLength={3}
+                      bg={"teal"}
+                    />
+                    <InputRightElement h={"full"}>
+                      <Button
+                        variant={"ghost"}
+                        onClick={() =>
+                          setShowPassword((showPassword) => !showPassword)
+                        }
+                      >
+                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </FormControl>
+                <Stack spacing={10} pt={2}>
+                  <Button
+                    type="submit"
+                    loadingText="Submitting"
+                    fontWeight={"bold"}
+                    mt={"15px"}
+                    width={"100%"}
+                    padding={"5px 15px"}
+                    border={"1px solid teal "}
+                    borderRadius={"30px"}
+                    bg={"white"}
+                    color={"teal"}
+                    _hover={{
+                      bg: "teal",
+                      color: "white",
+                      border: "1px solid white",
+                    }}
+                  >
+                    Sign up
+                  </Button>
+                </Stack>
               </Stack>
-              <Stack pt={6}>
-                <Text align={"center"}>
-                  Already a user?{" "}
-                  <Link href="login" color={"twitter.500"}>
-                    Login
-                  </Link>
-                </Text>
-              </Stack>
-            </Stack>
-          </form>
-        </Box>
-      </Stack>
+            </form>
+          </Box>
+        </Stack>
+      </Box>
     </Flex>
   );
 }
