@@ -24,7 +24,7 @@ export default function ArticlePage() {
     // Simulate loading delay (replace with actual data fetching)
     setTimeout(() => {
       setLoading(false); // Set loading to false when content is loaded
-    }, 3000);
+    }, 1500);
   }, []);
 
   if (loading) {
