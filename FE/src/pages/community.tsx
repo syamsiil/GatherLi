@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import Threads from "../components/Threads";
 import Carousel from "../components/CarouselCommunity";
 
-
 export default function Community() {
     return (
         <Box>

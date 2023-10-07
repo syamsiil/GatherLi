@@ -16,8 +16,12 @@ export default function About() {
         </Box>
 
         <Box flex={"50%"}>
-          <Heading fontWeight={"600"} fontSize={"2xl"} mb={"12px"}>
-            Bersama kita Peduli
+          <Heading fontWeight={"700"} fontSize={"2xl"} mb={"12px"}>
+            Bersama
+            <Text as="span" color={"#83b735"}>
+              {" "}
+              Kita Peduli
+            </Text>
           </Heading>
           <Text>
             Bersama kita Peduli dan membantu orang-orang di sekitar kita untuk
@@ -40,7 +44,7 @@ export default function About() {
               <Box
                 width={"58px"}
                 height={"8px"}
-                bg={"teal"}
+                bg={"#83b735"}
                 mt={"8px"}
                 mb={"8px"}
                 justifyContent={"center"}
@@ -56,7 +60,7 @@ export default function About() {
               <Box
                 width={"58px"}
                 height={"8px"}
-                bg={"teal"}
+                bg={"#83b735"}
                 mt={"8px"}
                 mb={"8px"}
                 justifyContent={"center"}
@@ -72,7 +76,7 @@ export default function About() {
               <Box
                 width={"58px"}
                 height={"8px"}
-                bg={"teal"}
+                bg={"#83b735"}
                 mt={"8px"}
                 mb={"8px"}
                 justifyContent={"center"}

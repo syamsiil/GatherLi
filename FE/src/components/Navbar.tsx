@@ -49,7 +49,11 @@ export default function WithSubnavigation() {
 
   return (
     <Box>
-      <Flex className={`navbar ${isScrolled ? "scrolled-navbar" : ""}`}>
+      <Flex
+        className={`navbar ${isScrolled ? "scrolled-navbar" : ""}`}
+        position={"fixed"}
+        top={0}
+      >
         <Flex
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
