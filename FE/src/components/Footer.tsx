@@ -49,6 +49,7 @@ export default function FooterTemplate() {
         display={"grid"}
         gridTemplateColumns={"repeat(auto-fit,minmax(240px,auto))"}
         gap={"15px"}
+        justifyContent={"space-between"}
       >
         <Box>
           <Heading fontSize={"20px"} fontWeight={"600"} mb={"10px"}>
@@ -58,10 +59,7 @@ export default function FooterTemplate() {
             </Text>
             .
           </Heading>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            dolores explicabo, earum excepturi incidunt quas!
-          </Text>
+          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Text>
           <Box display={"flex"} alignItems={"center"} gap={"10px"}>
             <Link
               fontSize={"24px"}
