@@ -21,8 +21,9 @@ export default function ArticlePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Simulate loading delay (replace with actual data fetching)
     setTimeout(() => {
-      setLoading(false); 
+      setLoading(false); // Set loading to false when content is loaded
     }, 3000);
   }, []);
 
