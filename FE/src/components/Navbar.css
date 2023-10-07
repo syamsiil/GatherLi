@@ -1,0 +1,28 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background-color: transparent;
+  color: white;
+  min-height: 60px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-items: center;
+  transition: background-color 0.3s ease; /* Efek transisi warna latar belakang */
+}
+
+/* Navbar saat di-scroll */
+.scrolled-navbar {
+  background-color: rgba(0, 0, 0, 0.3); /* Latar belakang semi-transparan */
+  backdrop-filter: blur(10px); /* Efek blur latar belakang */
+  color: white;
+  min-height: 60px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-items: center;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Efek transisi warna latar belakang dan efek blur */
+}
