@@ -11,6 +11,7 @@ import { AUTH_CHECK, AUTH_ERROR } from "./stores/rootReducer";
 import CardNews from "../src/components/CardNews";
 import ArticlePage from "../src/pages/detailNews";
 import CardProfile from "../src/components/CardProfile";
+import CommunityDetail from "../src/pages/DetailPorjectRoute";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -53,7 +54,7 @@ function App() {
 
   function IsNotLogin() {
     if (auth.username) {
-      return <Navigate to={"/home"} />;
+      return <Navigate to={"/"} />;
     } else {
       return <Outlet />;
     }
@@ -62,12 +63,14 @@ function App() {
     <>
       {isLoading ? null : (
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/" element={<IsLogin />}>
-            <Route path="/home" element={<Home />} />
             <Route path="/threads" element={<Community />} />
             <Route path="/news" element={<CardNews />} />
-            {/* <Route path="/news/:id" element={<ArticlePage />} /> */}
+            <Route path="/news/:id" element={<ArticlePage />} />
             <Route path="/profile" element={<CardProfile />} />
+            <Route path="/detail/:id" element={<CommunityDetail />} />
+            {/* <Route path="/detail/:id" element={< />} /> */}
           </Route>
           <Route path="/" element={<IsNotLogin />}>
             <Route path="registrasi" element={<Register />}></Route>

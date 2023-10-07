@@ -120,14 +120,14 @@ export default function UseThreads() {
                 my={5}
                 alignItems={"center"}
                 p={3}
-                m={0}
+                mb={0}
                 borderX={"1px"}
                 borderColor={"grey"}
             >
                 <form encType="multipart/form-data">
-                    <Button onClick={() => console.log("ini user", user)}>
+                    {/* <Button onClick={() => console.log("ini user", user)}>
                         INI BUTTON
-                    </Button>
+                    </Button> */}
                     <Flex>
                         <Box>
                             <Avatar name="a" src={auth.profile_picture}></Avatar>
