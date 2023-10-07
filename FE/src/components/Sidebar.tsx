@@ -21,6 +21,7 @@ export default function Sidebar() {
                 maxW={'380px'}
                 height={'42em'}
                 w={'full'}
+                mt={8}
                 // eslint-disable-next-line react-hooks/rules-of-hooks
                 bg={useColorModeValue('white', 'gray.900')}
                 boxShadow={'2xl'}
@@ -33,10 +34,10 @@ export default function Sidebar() {
 
                 <Stack>
                     <Text
-                        color={'green.500'}
+                        color={'teal'}
                         textTransform={'uppercase'}
                         fontWeight={800}
-                        fontSize={'2em'}
+                        fontSize={'1.8em'}
                         letterSpacing={1.1}
                         display={"flex"}
                         alignItems={"center"}

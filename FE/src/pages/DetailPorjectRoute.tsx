@@ -1,10 +1,12 @@
-import { Box, Button, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import Threads from "../components/Threads";
 import Carousel from "../components/CarouselCommunity";
+import { DetailProject } from "./DetailProject";
 
-export default function Community() {
+
+export default function CommunityDetail() {
     return (
         <Box>
             <Navbar />
@@ -14,8 +16,8 @@ export default function Community() {
                         <Sidebar />
                     </Box>
                 </GridItem>
-                <GridItem colSpan={6} mt={10}>
-                    <Threads />
+                <GridItem colSpan={6} mt={"14"}>
+                    <DetailProject />
                 </GridItem>
                 <GridItem colSpan={3} mt={10}>
                     <Box px={4} py={9} >
@@ -25,9 +27,10 @@ export default function Community() {
                             <Text mt={4}>
                                 #KitaPeduli adalah gerakan sosial yang mengajak publik bergotong royong untuk membantu pelaku usaha Parekraf Indonesia yang terdampak pandemi, dengan berdonasi.
 
+                                Hasil donasi akan digunakan untuk membeli paket kebutuhan pokok dan paket kesehatan yang akan didistribusi kepada para pelaku usaha Parekraf.
+
                                 #KitaPeduli adalah gerakan kolaboratif antara
                             </Text>
-                            <Button width={"full"} mt={3} bgColor={"teal"}>KLIK UNTUK IKUT EVENT SELANJUTNYA</Button>
                         </Box>
                     </Box>
                 </GridItem>

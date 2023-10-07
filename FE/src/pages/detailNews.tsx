@@ -6,7 +6,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import dataNews from "@/utils/dataNews.json";
+import dataNews from "../utils/dataNews.json";
 
 
 

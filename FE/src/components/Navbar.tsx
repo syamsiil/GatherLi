@@ -25,9 +25,24 @@ import {
 import { useEffect, useState } from "react";
 
 import "./Navbar.css";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../stores/types/rootState";
+import { useNavigate } from "react-router-dom";
+import { AUTH_LOGOUT } from "../stores/rootReducer";
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const auth = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  function handleLogout() {
+    dispatch(AUTH_LOGOUT())
+
+    navigate("/login")
+  }
+
+
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -79,37 +94,44 @@ export default function WithSubnavigation() {
             <DesktopNav />
           </Flex>
         </Flex>
+        {!auth.username ? (
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={"flex-end"}
+            direction={"row"}
+            spacing={6}
+          >
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"#474fa0"}
-            href={"#"}
-            _hover={{
-              bg: "#1c2844",
-            }}
-          >
-            Sign Up
-          </Button>
-        </Stack>
+
+            <Button
+
+              as={"a"}
+              fontSize={"sm"}
+              fontWeight={400}
+              variant={"link"}
+              href={"#"}
+            >
+              Sign In
+            </Button>
+            <Button
+              as={"a"}
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"#474fa0"}
+              href={"#"}
+              _hover={{
+                bg: "#1c2844",
+              }}
+            >
+              Sign Up
+            </Button>
+
+          </Stack>
+        ) : (
+          <Button onClick={handleLogout}> LOGOUT</Button>
+        )}
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
