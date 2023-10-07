@@ -13,6 +13,7 @@ import replieController from "../controllers/replie-controller";
 import likeController from "../controllers/like-controller";
 import FollowsController from "../controllers/follow-controller";
 import { getRandomUsers } from "../controllers/userRandom-controller";
+import cardController from "../controllers/card-controller";
 
 const router = express.Router();
 // const router2 = express.Router();
@@ -26,6 +27,10 @@ router.get("/", (req: Request, res: Response) => {
 //     message: "Hello this is threads!",
 //   });
 // });
+
+router.get("/cards", cardController.find);
+router.get("/card/detail/:id", cardController.findOne);
+router.post("/card", verifyToken, upload("image"), cardController.create);
 
 router.get("/threads", verifyToken, threadController.find);
 router.get("/threads/:id", verifyToken, threadController.findOne);

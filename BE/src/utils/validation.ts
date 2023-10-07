@@ -16,3 +16,9 @@ export const loginSchema = Joi.object().keys({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
+
+export const cardSchema = Joi.object({
+  title: Joi.string(),
+  content: Joi.string(),
+  image: Joi.string(),
+});

@@ -13,6 +13,7 @@ import CardNews from "../src/components/CardNews";
 import CardProfile from "../src/components/CardProfile";
 import CommunityDetail from "../src/pages/DetailPorjectRoute";
 import DetailCard from "../src/pages/detailCard";
+import CreateCard from "./pages/createCard";
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -69,6 +70,7 @@ function App() {
             <Route path="/threads" element={<Community />} />
             <Route path="/news" element={<CardNews />} />
             <Route path="/detailcard/:id" element={<DetailCard />} />
+            <Route path="/card" element={<CreateCard />} />
             {/* <Route path="/news/:id" element={<ArticlePage />} /> */}
             <Route path="/profile" element={<CardProfile />} />
             <Route path="/detail/:id" element={<CommunityDetail />} />
