@@ -5,24 +5,11 @@ import FooterTemplate from "../components/Footer";
 // import { useState } from "react";
 import CardHome from "../components/Card";
 import About from "../components/About";
+import { useSelector } from "react-redux";
+import { RootState } from "../stores/types/rootState";
 export default function Home() {
-  // const initialCards = [
-  //   { title: 'Card 1' },
-  //   { title: 'Card 2' },
-  //   { title: 'Card 3' },
-  //   // Add more cards here
-  // ];
 
-  // const [cards, setCards] = useState(initialCards);
-  // const [filter, setFilter] = useState<string>('');
-
-  // const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setFilter(event.target.value);
-  // };
-
-  // const filteredCards = cards.filter((card) =>
-  //   card.title.toLowerCase().includes(filter.toLowerCase())
-  // );
+  const auth = useSelector((state: RootState) => state.auth);
   return (
     <>
       <Box>
@@ -32,6 +19,7 @@ export default function Home() {
         <Carousel />
 
         <About />
+
 
         <Box
           display={"grid"}
