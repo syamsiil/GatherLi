@@ -18,17 +18,19 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { Link } from "../../node_modules/react-router-dom/dist/index";
 
 interface Props {
   children: React.ReactNode;
 }
 
-const Links = ["Dashboard", "Projects", "Team"];
+const Links = ["Dashboard", "News", "Team"];
 
 const NavLink = (props: Props) => {
   const { children } = props;
 
   return (
+    <Link to={'/news'}>
     <Box
       as="a"
       px={2}
@@ -42,6 +44,7 @@ const NavLink = (props: Props) => {
     >
       {children}
     </Box>
+    </Link>
   );
 };
 
