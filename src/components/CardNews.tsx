@@ -12,37 +12,9 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import dataNews from "../utils/dataNews.json"
-// import { useState, useEffect } from 'react';
-// import axios from "axios";
-
-// interface NewsArticle {
-//   id: string;
-//   title: string;
-//   description: string;
-//   publishedAt: string;
-//   urlToImage: string;
-//   // Add other properties as needed
-// }
 
 
 export default function CardNews() {
-  // const [newsData, setNewsData] = useState<NewsArticle[]>([]);
-
-  // useEffect(() => {
-  //   const apiKey = "1ed77cfa2b0440bc9da796c6ee02b79d"; 
-  //   const apiUrl = "https://newsapi.org/v2/top-headlines/sources";
-
-  //   const apiUrlWithKey = `${apiUrl}?apiKey=${apiKey}`;
-
-  //   axios
-  //     .get(apiUrlWithKey)
-  //     .then((response) => {
-  //       setNewsData(response.data.articles);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, []);
 
   return (
     <>
