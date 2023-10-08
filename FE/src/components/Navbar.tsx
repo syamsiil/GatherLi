@@ -306,10 +306,10 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "News",
-    href: "#",
+    href: "/news",
   },
   {
     label: "Discuss",
-    href: "#",
+    href: "/threads",
   },
 ];

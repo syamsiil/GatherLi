@@ -15,26 +15,18 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Navbar from "./Navbar";
-import { useState } from "react";
+import useProfile from "../hooks/useProfile";
 
 export default function CardProfile() {
-  const [selectedImage, setSelectedImage] = useState("");
+  const { selectedImage, handleImageUpload,handleFormSubmit, setName, setEmail, setBio } =
+    useProfile();
 
-  const handleImageUpload = (event: any) => {
-    const file = event.target.files[0]; //mengambil file pertama dalam array (dalam hal ini, gambar yang dipilih oleh pengguna)
-    const reader = new FileReader(); // Objek ini digunakan untuk membaca konten file yang dipilih oleh pengguna.
-
-    reader.onload = (e: any) => {
-      //callback yang akan dipanggil ketika pembaca telah selesai membaca file gambar yang dipilih oleh pengguna
-      setSelectedImage(e.target.result);
-
-      console.log("ini isi setSelectedImage", e.target.result);
-    };
-
-    reader.readAsDataURL(file); // pembacaan file yang dipilih oleh pengguna sebagai data URL
-
-    console.log("ini isi selectedImage", selectedImage);
-  };
+    console.log("isi selectedImage", selectedImage)
+    console.log("isi handleImageUpload", handleImageUpload)
+    console.log("isi handleFormSubmit", handleFormSubmit)
+    console.log("isi setName", setName)
+    console.log("isi setEmail", setEmail)
+    console.log("isi setBio", setBio)
 
   return (
     <>
@@ -42,9 +34,7 @@ export default function CardProfile() {
       <Container mb={"1em"} mt={"5em"} maxWidth={"100%"}>
         <Box>
           <Box mb={"0.5em"}>
-            <Heading textAlign={"center"}>
-              Account Settings
-            </Heading>
+            <Heading textAlign={"center"}>Account Settings</Heading>
             <Text textAlign={"center"}>Edit your name , avatar etc</Text>
           </Box>
           <Center>
@@ -56,16 +46,31 @@ export default function CardProfile() {
                       <Flex mt={"1.5em"}>
                         <Box me={"1em"}>
                           <FormLabel>Nama Lengkap</FormLabel>
-                          <Input placeholder="Your Name" width={"500px"} />
+                          <Input
+                            placeholder="Your Name"
+                            width={"500px"}
+                            name="name"
+                            onChange={(event) => setName(event.target.value)}
+                          />
                         </Box>
                       </Flex>
                       <Box mt={"1.5em"}>
                         <FormLabel>Alamat Email</FormLabel>
-                        <Input type="email" placeholder="Email" />
+                        <Input
+                          type="email"
+                          placeholder="Email"
+                          name="email"
+                          onChange={(event) => setEmail(event.target.value)}
+                        />
                       </Box>
                       <Box mt={"1.5em"}>
                         <FormLabel>Biografi</FormLabel>
-                        <Textarea resize={"none"} height={"200px"} />
+                        <Textarea
+                          resize={"none"}
+                          height={"200px"}
+                          name="bio"
+                          onChange={(event) => setBio(event.target.value)}
+                        />
                       </Box>
                       <Flex
                         justifyContent={"end"}
@@ -79,6 +84,8 @@ export default function CardProfile() {
                             textColor: "#fff",
                           }}
                           colorScheme="none"
+                          onClick={handleFormSubmit}
+
                         >
                           Simpan
                         </Button>
