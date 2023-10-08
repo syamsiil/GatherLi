@@ -12,7 +12,7 @@ export default function DetailCardComponent() {
 
   async function getCardById() {
     try {
-      const response = await API.get("/card/detail/" + id);
+      const response = await API.get("/cards/detail/" + id);
       setCard(response.data);
       console.log("berhasil mendapatkan thread", response.data);
     } catch (err) {
@@ -24,11 +24,11 @@ export default function DetailCardComponent() {
     getCardById();
   }, []);
 
-  const cardDetail = dataDetail.find((item) => item.id === id);
-  if (!cardDetail) {
-    // Handle the case where the news article with the specified id is not found
-    return <Text>Detail not found.</Text>;
-  }
+  // const cardDetail = dataDetail.find((item) => item.id === id);
+  // if (!cardDetail) {
+  //   // Handle the case where the news article with the specified id is not found
+  //   return <Text>Detail not found.</Text>;
+  // }
   return (
     <Box>
       <Box

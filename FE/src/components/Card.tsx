@@ -28,15 +28,24 @@ export default function CardHome() {
     dispatch(GET_CARDS(response.data))
   }
 
+  async function deleteCard(id: number) {
+    await API.delete("/cards/delete/" + id)
+  }
+
+  async function handleDeleteAndFetch(id: any) {
+    await deleteCard(id); // Menghapus kartu
+    await getCards(); // Mengambil data yang diperbarui
+  }
+
   useEffect(() => {
     getCards();
   }, []);
 
-  const limitedData = dummy.slice(0, 4);
+  const card = cards.slice(0, 4);
 
   return (
     <>
-      {cards.map((item) => (
+      {card.map((item) => (
         <Card maxW="sm">
           <Box>
             <Image
@@ -69,6 +78,8 @@ export default function CardHome() {
             >
               Read More
             </Button>
+            {/* <Button onClick={() => deleteCard(item.id )}>tes</Button> */}
+            <Button onClick={() => item.id !== undefined ? handleDeleteAndFetch(item.id) : null}>Del</Button>
           </CardFooter>
         </Card>
       ))}

@@ -13,8 +13,9 @@ import cardController from "../controllers/card-controller";
 const router = express.Router();
 
 router.get("/cards", cardController.find);
-router.get("/card/detail/:id", cardController.findOne);
-router.post("/card", verifyToken, upload("image"), cardController.create);
+router.get("/cards/detail/:id", cardController.findOne);
+router.post("/cards", verifyToken, upload("image"), cardController.create);
+router.delete("/cards/delete/:id", cardController.delete);
 
 router.get("/threads", verifyToken, threadController.find);
 router.get("/threads/:id", verifyToken, threadController.findOne);

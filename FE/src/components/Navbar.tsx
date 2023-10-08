@@ -33,16 +33,14 @@ import { AUTH_LOGOUT } from "../stores/rootReducer";
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const auth = useSelector((state: RootState) => state.auth);
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleLogout() {
-    dispatch(AUTH_LOGOUT())
+    dispatch(AUTH_LOGOUT());
 
-    navigate("/login")
+    navigate("/login");
   }
-
-
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -101,15 +99,12 @@ export default function WithSubnavigation() {
             direction={"row"}
             spacing={6}
           >
-
-
             <Button
-
               as={"a"}
               fontSize={"sm"}
               fontWeight={400}
               variant={"link"}
-              href={"#"}
+              href={"/login"}
             >
               Sign In
             </Button>
@@ -120,17 +115,16 @@ export default function WithSubnavigation() {
               fontWeight={600}
               color={"white"}
               bg={"#474fa0"}
-              href={"#"}
+              href={"/register"}
               _hover={{
                 bg: "#1c2844",
               }}
             >
               Sign Up
             </Button>
-
           </Stack>
         ) : (
-          <Button onClick={handleLogout}> LOGOUT</Button>
+          <Button onClick={handleLogout}> Logout</Button>
         )}
       </Flex>
 

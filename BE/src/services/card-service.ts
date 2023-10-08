@@ -53,6 +53,24 @@ class CardServices {
     }
   }
 
+  async delete(id: number): Promise<any> {
+    try {
+      const card = await this.cardRepository.findOne({
+        where: {
+          id,
+        },
+        relations: ["user"],
+      });
+
+      const card1 = await this.cardRepository.delete({
+        id: card.id,
+      });
+      return console.log("berhasil delete");
+    } catch (err) {
+      throw new Error("error delete produck");
+    }
+  }
+
   async create(req: Request, res: Response) {
     try {
       const data = req.body;

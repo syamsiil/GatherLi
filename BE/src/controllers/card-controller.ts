@@ -24,9 +24,23 @@ class CardController {
 
       const response = await cardService.findOne(id);
       return res.status(200).json(response);
-    } catch (errpr) {
+    } catch (error) {
       return res.status(500).json({
         error: "Error getting findOne Card Controller",
+      });
+    }
+  }
+
+  async delete(req: Request, res: Response) {
+    try {
+      const id = parseInt(req.params.id);
+      const loginSession = res.locals.loginSession;
+
+      const response = await cardService.delete(id);
+      return res.status(200).json(response);
+    } catch (err) {
+      return res.status(500).json({
+        error: "Error delete card",
       });
     }
   }

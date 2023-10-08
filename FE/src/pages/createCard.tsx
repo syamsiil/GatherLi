@@ -84,7 +84,7 @@ export default function CreateCard() {
             formData.append("image", form.image as string);
         }
         try {
-            const response = await API.post("/card", formData);
+            const response = await API.post("/cards", formData);
 
             console.log(response.data, "ini post");
             setForm({

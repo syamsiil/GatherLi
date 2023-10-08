@@ -7,6 +7,7 @@ import CardHome from "../components/Card";
 import About from "../components/About";
 import { useSelector } from "react-redux";
 import { RootState } from "../stores/types/rootState";
+import AddCardPopup from "../components/AddCardPopup";
 export default function Home() {
 
   const auth = useSelector((state: RootState) => state.auth);
@@ -20,12 +21,15 @@ export default function Home() {
 
         <About />
 
+        <Box display={"flex"} justifyContent={"center"}>
+          <AddCardPopup />
+        </Box>
 
         <Box
           display={"grid"}
           gridTemplateColumns={"repeat(auto-fit,minmax(270px,auto))"}
           gap={"15px"}
-          margin={"50px 5%"}
+          margin={"20px 5%"}
         >
           <CardHome />
         </Box>
