@@ -105,21 +105,21 @@ export default function AddCardPopup() {
   return (
     <>
       <Box width={"200px"}>
-        {auth.username === "admin" ? (
-          <Button
-            onClick={onOpen}
-            variant="solid"
-            bgColor={"teal"}
-            width={"100%"}
-            colorScheme="none"
-            color={"white"}
-            _hover={{
-              bgColor: "teal.700",
-            }}
-          >
-            Add
-          </Button>
-        ) : ""}
+        {/* {auth.username === "fara" ? ( */}
+        <Button
+          onClick={onOpen}
+          variant="solid"
+          bgColor={"teal"}
+          width={"100%"}
+          colorScheme="none"
+          color={"white"}
+          _hover={{
+            bgColor: "teal.700",
+          }}
+        >
+          Add
+        </Button>
+        {/* ) : ""} */}
 
       </Box>
 

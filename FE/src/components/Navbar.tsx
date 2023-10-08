@@ -310,6 +310,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Discuss",
-    href: "#",
+    href: "/threads",
   },
 ];

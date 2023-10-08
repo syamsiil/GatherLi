@@ -179,7 +179,7 @@ export default function Login() {
             }}
             cursor={"pointer"}
             ml={2}
-            onClick={() => navigate("/registrasi")}
+            onClick={() => navigate("/register")}
           >
             Sign Up
           </Text>
