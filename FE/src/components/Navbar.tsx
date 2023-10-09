@@ -202,8 +202,6 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             transition={"all .3s ease"}
             _groupHover={{ color: "pink.400" }}
             fontWeight={500}
-            padding={"5px 10px"}
-            bg={"teal"}
           >
             {label}
           </Text>
@@ -306,10 +304,10 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "News",
-    href: "#",
+    href: "/news",
   },
   {
     label: "Discuss",
-    href: "#",
+    href: "threads",
   },
 ];
