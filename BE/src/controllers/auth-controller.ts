@@ -4,14 +4,6 @@ import tes from "../services/auth-services";
 import authServices from "../services/auth-services";
 
 class LoginController {
-  // findOne(req: Request, res: Response) {
-  //   authServices.findOne(req, res);
-  // }
-
-  // check(req: Request, res: Response) {
-  //   authServices.check(req, res);
-  // }
-
   async register(req: Request, res: Response) {
     try {
       const response = await AuthServices.register(req.body);

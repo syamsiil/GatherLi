@@ -9,6 +9,7 @@ import { Thread } from "./Thread";
 import { Follow } from "./Follow";
 import { Likes } from "./Like";
 import { Reply } from "./Replie";
+import { Card } from "./Card";
 
 @Entity({ name: "users" })
 export class User {
@@ -65,4 +66,10 @@ export class User {
     onUpdate: "CASCADE",
   })
   replies: Reply[];
+
+  @OneToMany(() => Card, (card) => card.user, {
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
+  card: Card[];
 }

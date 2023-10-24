@@ -1,14 +1,34 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import { Link, useParams } from "react-router-dom";
 import dataDetail from "../utils/dummyDetail.json";
+import { ICard } from "../interface/card";
+import { useState, useEffect } from "react";
+import { API } from "../libs/api";
+
 
 export default function DetailCardComponent() {
   const { id } = useParams();
-  const cardDetail = dataDetail.find((item) => item.id === id);
-  if (!cardDetail) {
-    // Handle the case where the news article with the specified id is not found
-    return <Text>Detail not found.</Text>;
+  const [card, setCard] = useState<ICard>();
+
+  async function getCardById() {
+    try {
+      const response = await API.get("/cards/detail/" + id);
+      setCard(response.data);
+      console.log("berhasil mendapatkan thread", response.data);
+    } catch (err) {
+      console.log("gagal mendapatkan thread", err);
+    }
   }
+
+  useEffect(() => {
+    getCardById();
+  }, []);
+
+  // const cardDetail = dataDetail.find((item) => item.id === id);
+  // if (!cardDetail) {
+  //   // Handle the case where the news article with the specified id is not found
+  //   return <Text>Detail not found.</Text>;
+  // }
   return (
     <Box>
       <Box
@@ -45,10 +65,10 @@ export default function DetailCardComponent() {
             color={"white"}
             mb={"20px"}
           >
-            {cardDetail.Title}
+            {card?.title}
           </Text>
           <Image
-            src={cardDetail.Image}
+            src={card?.image}
             alt=""
             width={"100%"}
             height={"420px"}
@@ -61,8 +81,8 @@ export default function DetailCardComponent() {
           />
 
           <Box mt={"50px"}>
-            <Heading>{cardDetail.Title}</Heading>
-            <Text textAlign={"justify"}>{cardDetail.Description}</Text>
+            <Heading>{card?.title}</Heading>
+            <Text textAlign={"justify"}>{card?.content}</Text>
           </Box>
         </Box>
       </Box>

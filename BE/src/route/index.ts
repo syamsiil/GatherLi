@@ -1,31 +1,21 @@
-import { Request, Response } from "express";
 import express = require("express");
 import threadController from "../controllers/thread-controller";
 import userController from "../controllers/user-controller";
 import authController from "../controllers/auth-controller";
-import * as getRepository from "typeorm";
-import { User } from "../entities/User";
-import * as bcrypt from "bcrypt";
 import verifyToken from "../middlewares/auth";
 import { upload } from "../middlewares/uploadsFile";
 import queueController from "../controllers/queue-controller";
 import replieController from "../controllers/replie-controller";
 import likeController from "../controllers/like-controller";
-import FollowsController from "../controllers/follow-controller";
 import { getRandomUsers } from "../controllers/userRandom-controller";
+import cardController from "../controllers/card-controller";
 
 const router = express.Router();
-// const router2 = express.Router();
 
-router.get("/", (req: Request, res: Response) => {
-  res.send("Hello from v1!");
-});
-
-// router.get("/threads", (req: Request, res: Response) => {
-//   res.status(200).json({
-//     message: "Hello this is threads!",
-//   });
-// });
+router.get("/cards", cardController.find);
+router.get("/cards/detail/:id", cardController.findOne);
+router.post("/cards", verifyToken, upload("image"), cardController.create);
+router.delete("/cards/delete/:id", cardController.delete);
 
 router.get("/threads", verifyToken, threadController.find);
 router.get("/threads/:id", verifyToken, threadController.findOne);
@@ -49,20 +39,6 @@ router.get("/auth/check", verifyToken, authController.check);
 router.post("/auth/register", authController.register);
 router.post("/auth/login", authController.login);
 
-router.get("/follows", verifyToken, FollowsController.find);
-router.post("/follow", verifyToken, FollowsController.create);
-router.delete(
-  "/follow/:followed_user_id",
-  verifyToken,
-  FollowsController.delete
-);
-
 router.get("/random-users", getRandomUsers);
-
-// Contoh data pengguna (biasanya dari database)
-// const users = [
-//   { id: 1, email: 'user@example.com', password: 'password123' },
-//   // ... data pengguna lainnya ...
-// ];
 
 export default router;
